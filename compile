@@ -1,0 +1,71 @@
+#!/bin/bash
+################################################################################
+# /compile
+# This script will run all the modules under /src through the appropriate
+# commands, and distribute the resulting files correctly.
+
+clear
+
+python3 - <<END
+
+import os
+
+################################################################################
+# Parameters
+
+# Source directory
+in_dir = 'src'
+
+# Output directories
+out_html = 'templates'
+out_css  = 'srv/static'
+out_js   = 'srv/static'
+
+################################################################################
+# Function to check if compilation should take place
+# Return true if source exists... and is newer than destination.
+# Also return true if source exists and destination doesn't exist yet.
+def should_compile(src, dst):
+
+	# NOTE Originally I tried adding in a last-modified check ...
+	# ... then I realized I'd have to check dependencies, so nope
+	#return os.path.exists(src) and (not os.path.exists(dst) or os.path.getmtime(src) > os.path.getmtime(dst))
+
+	# Just do it the dumb way
+	return os.path.exists(src)
+
+################################################################################
+# Search for compilable files
+
+for fullroot, directories, filenames in os.walk(in_dir):
+
+	# Remove the indir from the beginning of the root
+	# This makes it easier to move files around later on
+	root = fullroot[len(in_dir):]
+
+	# Compile .head.pug and .body.pug
+	if should_compile(in_dir + root + '/\$.head.pug', out_html + root + '.head.php'):
+		print('Compiling: ' + in_dir + root + '/\$.head.pug -> ' + out_html + root + '.head.php')
+		os.system("phug compile-file '" + in_dir + root + "/\$.head.pug' -o '" + out_html + root + ".head.php' --debug=false")
+	if should_compile(in_dir + root + '/\$.body.pug', out_html + root + '.body.php'):
+		print('Compiling: ' + in_dir + root + '/\$.body.pug -> ' + out_html + root + '.body.php')
+		os.system("phug compile-file '" + in_dir + root + "/\$.body.pug' -o '" + out_html + root + ".body.php'")
+
+	# Compile .sass
+	if should_compile(in_dir + root + '/\$.sass', out_css + root + '.css'):
+		print('Compiling: ' + in_dir + root + '/\$.sass -> ' + out_css + root + '.css')
+		os.system("sass --no-source-map --indented --style=compressed --load-path=src --load-path=src/_common '" + in_dir + root + "/\$.sass' '" + out_css + root + ".css'")
+
+	# Compile .coffee
+	if should_compile(in_dir + root + '/\$.coffee', out_js + root + '.js'):
+		print('Compiling: ' + in_dir + root + '/\$.coffee -> ' + out_js + root + '.js')
+		os.system("npx webpack --display-error-details --module-bind 'coffee=coffee-loader' --mode 'production' --entry './" + in_dir + root + "/\$.coffee' --output '" + out_js + root + ".js'")
+
+################################################################################
+# Hard-coded exceptions
+
+if should_compile(in_dir + '/\$-template-bridge.pug', out_html + '/\$-template-bridge.php'):
+	print('Compiling: ' + in_dir + '/\$-template-bridge.pug -> ' + out_html + '/\$-template-bridge.php')
+	os.system("/home/reid/vendor/bin/phug compile-file '" + in_dir + "/\$-template-bridge.pug' -o '" + out_html + "/\$-template-bridge.php'")
+
+END

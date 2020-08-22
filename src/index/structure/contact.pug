@@ -1,0 +1,59 @@
+h3 Contact Me!
+
+form(method='POST' action='/send-contact-email' data-hook-before-submit='contact_beforeSubmit' data-hook-success='contact_success' data-hook-error='contact_error')
+	
+	.success
+		span
+			p Message sent!
+			p I&#x2019;ll be in touch soon!
+	
+	.fields
+	
+		- $names =  ['N. K. Jemisin'];
+		- $emails = ['nice.client@example.com'];
+		
+		label.name
+			span Name
+			input(type='text' name='name' placeholder=$names[mt_rand(0, count($names) - 1)])
+
+		label.email
+			span Email
+			input(type='email' name='email' placeholder=$emails[mt_rand(0, count($names) - 1)])
+		
+		textarea(name='message' placeholder='What can I help you with?')
+		
+		label.captcha
+			div
+				span Generating captcha...
+			input(type='text' name='captcha_response' placeholder='Type your answer here...')
+		
+		-# I will poll /captcha/generate for a captcha, and place it into hidden
+		-# inputs that look like this:
+		-# input(type='hidden' name='captcha_token[]' value='some_md5_string')
+		
+		button.cta(type='submit')
+			.default Send Email
+			img.loading(src='/assets/loading.io/Spin-1s-200px.svg' alt='Loading icon')
+			.error An error occurred, please try again.
+
+.social
+
+	a.discord(href='https://discord.com/channels/@me' target='_blank' rel='nofollow noreferrer')
+		img(src='/assets/media-kits/discord/Discord-Logo-Color.svg' alt='Discord')
+		span crexalbo#1593
+
+	a.twitter(href='https://twitter.com/ReidLitkauo' target='_blank' rel='nofollow noreferrer')
+		img(src='/assets/media-kits/twitter/Twitter_Logo_Blue/Twitter_Logo_Blue.svg' alt='Twitter')
+		span @ReidLitkauo
+
+	a.github(href='https://github.com/ReidLitkauo' target='_blank' rel='nofollow noreferrer')
+		img(src='/assets/media-kits/github/GitHub-Mark-120px-plus.png' alt='GitHub')
+		span @ReidLitkauo
+
+	a.linkedin(href='https://www.linkedin.com/in/reidlitkauo/' target='_blank' rel='nofollow noreferrer')
+		img(src='/assets/media-kits/linkedin/LI-In-Bug.png' alt='LinkedIn')
+		span @ReidLitkauo
+
+	a.email(href='mailto:reid@litkauo.com' target='_blank' rel='nofollow noreferrer')
+		img(src='/assets/flaticon/freepik/kawaii-mail.svg' alt='Email')
+		span reid@litkauo.com

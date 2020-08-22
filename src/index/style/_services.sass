@@ -1,0 +1,117 @@
+@use 'media-queries' as *
+
+section.services
+
+	.service
+		padding: 5vw
+
+		img
+			display: inline-block
+			width: min(8vh, 16vw)
+			height: min(8vh, 16vw)
+
+		h4
+			padding: 2vmin 0 0
+			font-size: min(4vh, 8vw)
+			// Only break at <wbr> tags
+			white-space: nowrap
+
+		p:first-of-type
+			font-size: min(3vh, 6vw)
+		p
+			font-size: min(2vh, 4vw)
+			padding: 2vmin 0 0
+
+	// Got my colors from here:
+	// https://medium.com/sketch-app-sources/how-to-use-pastel-colors-in-your-designs-15-wonderful-pastel-color-schemes-e9a8108dbff9
+	// Curse you and your long URLs, medium!
+
+	.service.align-left
+		z-index: 11
+		text-align: left
+
+		+mobile
+			padding-right: 15vw
+
+		+desktop
+			padding-right: 10vw
+
+	.service.align-right
+		z-index: 10
+
+		+mobile
+			text-align: right
+			padding-left: 15vw
+
+		+desktop
+			text-align: left
+			padding-right: 10vw
+
+	// For the below:
+	// calc(   7.5 * min( 1vh, calc(  4/3  * 1vw ) ) )
+	// 4/3 is the aspect ratio at which we reach the double point
+	// 7.5 is the scaling factor
+	// You'll occasionally see a +/- 100px or something like that
+	// This is just insurance against extremely vertical screen aspect ratios
+
+	.service.frontend
+		margin-top:     calc(  -5   * min( 1vh, calc(  1/1  * 1vw ) ) )
+		padding-top:    calc(   5   * min( 1vh, calc(  8/5  * 1vw ) ) )
+		padding-bottom: calc(   4   * min( 1vh, calc(  2/1  * 1vw ) ) )
+		background: #c375f0
+		clip-path: polygon(0% 0%, 100% 25%, 100% 90%, 0% 100%)
+		-webkit-clip-path: polygon(0% 0%, 100% 25%, 100% 90%, 0% 100%)
+
+	.service.backend
+		margin-top:     calc(  -5   * min( 1vh, calc(  2/1  * 1vw ) ) )
+		padding-top:    calc(   7   * min( 1vh, calc(  1/1  * 1vw ) ) )
+		padding-bottom: calc(   7.5 * min( 1vh, calc(  4/3  * 1vw ) ) )
+		background: #8ed978
+		//clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)
+		//-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)
+
+	//.service.database
+	.service.sysadmin
+		margin-top:     calc(  -5   * min( 1vh, calc(  2/1  * 1vw ) ) )
+		padding-top:    calc(   3   * min( 1vh, calc(  4/3  * 1vw ) ) )
+		padding-bottom: calc(   7.5 * min( 1vh, calc(  2/1  * 1vw ) ) )
+		background: #aa7b6f
+		clip-path: polygon(0% 0%, 100% 10%, 100% 80%, 0% 100%)
+		-webkit-clip-path: polygon(0% 0%, 100% 10%, 100% 80%, 0% 100%)
+
+	.service.security
+		margin-top:     calc( -11.5 * min( 1vh, calc(  2/1  * 1vw ) ) )
+		padding-top:    calc(  15   * min( 1vh, calc(  4/6  * 1vw ) ) )
+		padding-bottom: calc(  19   * min( 1vh, calc(  1/1  * 1vw ) ) )
+		background: #619196
+		//clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)
+		//-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)
+
+	.service.seo
+		margin-top:     calc( -16.5 * min( 1vh, calc(  4/3  * 1vw ) ) )
+		padding-top:    calc(   3   * min( 1vh, calc(  3/1  * 1vw ) ) )
+		padding-bottom: calc(  11   * min( 1vh, calc(  2/6  * 1vw ) ) )
+		background: #ff6b89
+		clip-path: polygon(0% 0%, 100% 25%, 100% 90%, 0% 100%)
+		-webkit-clip-path: polygon(0% 0%, 100% 25%, 100% 90%, 0% 100%)
+
+	.service.support
+		margin-top:     calc(  -5   * min( 1vh, calc(  2/1  * 1vw ) ) )
+		padding-top:    calc(   6   * min( 1vh, calc(  1/1  * 1vw ) ) )
+		padding-bottom: calc(   8   * min( 1vh, calc(  1/1  * 1vw ) ) )
+		background: #f0f094
+		//clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)
+		//-webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)
+
+	.service.pricing
+		margin-top:     calc(  -5   * min( 1vh, calc(  2/1  * 1vw ) ) )
+		padding-top:    calc(   5   * min( 1vh, calc(  1/1  * 1vw ) ) )
+		padding-bottom: calc(   3   * min( 1vh, calc(  1/1  * 1vw ) ) )
+		background: #94d8ff
+		clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%)
+		-webkit-clip-path: polygon(0% 0%, 100% 10%, 100% 100%, 0% 100%)
+
+	//.service.pricing
+		margin-top: max(-10vh, -20vw)
+		padding-top: 7vmin
+		background: #fcf

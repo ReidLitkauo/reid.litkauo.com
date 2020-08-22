@@ -1,0 +1,17 @@
+@use "media-queries" as *
+@use "header-nn"
+@use "header-name"
+
+header
+	z-index: 2
+	background: hsl(180deg, 20%, 2%)
+	padding: 5vmin 0 5vmin
+
+.header-wave
+	// This margin gets rid of the thin line between this and the header (???)
+	margin: -0.1vmin 0 0
+	background: hsl(180deg, 20%, 2%)
+	height: 10vmin
+	//clip-path: url(#svg-clippath-wave)
+	clip-path: polygon(0% 0%, 100% 0%, 0% 100%)
+	-webkit-clip-path: polygon(0% 0%, 100% 0%, 0% 100%)

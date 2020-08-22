@@ -1,0 +1,33 @@
+-###############################################################################
+-# /src/$-template-bridge.pug
+-# This file provides the bridge between the framework's render_template()
+-# and actually showing some HTML.
+-# Provides a basic framework for all pages for the site.
+
+| 
+| <!DOCTYPE html>
+| 
+
+-# Gotta give myself some credit, mate
+// This website was created by Reid Litkauo - reid.litkauo.com
+
+html(lang='en-US')
+	head
+		
+		-# Uncomment this line to reintroduce WordPress head stuff.
+		-# wp_head();
+		
+		- require_once __DIR__ . "/../templates/_common.head.php";
+		
+		script(src="/static/$endpoint.js" defer)
+		link(rel='stylesheet' href="/static/$endpoint.css")
+		
+		- require_once __DIR__ . "/../templates/$endpoint.head.php";
+
+	
+	body
+	
+		- require_once __DIR__ . "/../templates/_common.body.php";
+	
+		main
+			- require_once __DIR__ . "/../templates/$endpoint.body.php";
