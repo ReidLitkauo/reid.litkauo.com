@@ -59,7 +59,7 @@ for fullroot, directories, filenames in os.walk(in_dir):
 	# Compile .coffee
 	if should_compile(in_dir + root + '/\$.coffee', out_js + root + '.js'):
 		print('Compiling: ' + in_dir + root + '/\$.coffee -> ' + out_js + root + '.js')
-		os.system("npx webpack --display-error-details --module-bind 'coffee=coffee-loader' --mode 'production' --entry './" + in_dir + root + "/\$.coffee' --output '" + out_js + root + ".js'")
+		#os.system("npx webpack --display-error-details --module-bind 'coffee=coffee-loader' --mode 'production' --entry './" + in_dir + root + "/\$.coffee' --output '" + out_js + root + ".js'")
 
 ################################################################################
 # Hard-coded exceptions

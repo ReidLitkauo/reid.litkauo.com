@@ -4,11 +4,19 @@ header('Content-type: application/json');
 
 # === === === === === === === === === === === === === === === === === === === ==
 # Make sure the captcha is correct
+
 if (!captcha_verify( $_POST['captcha_response'], $_POST['captcha_answer'] )) {
 	echo json_encode(['msg' => 'Incorrect captcha response, please try again.']);
 	http_response_code(403);
 	exit();
 }
+
+# === === === === === === === === === === === === === === === === === === === ==
+# Validate all other inputs
+
+$email_name =  $_POST['name']    ? $_POST['name']    : '<empty name>';
+$email_email = $_POST['email']   ? $_POST['email']   : '<empty email>';
+$email_msg =   $_POST['message'] ? $_POST['message'] : '<empty message>';
 
 # === === === === === === === === === === === === === === === === === === === ==
 # Send the email
@@ -34,7 +42,7 @@ try {
 	# Content
 	# TODO Make name/email into from or reply-to fields?
 	$mail->Subject = 'Message from your personal website!';
-	$mail->Body    = $_POST['name'] . "\n" . $_POST['email'] . "\n\n" . $_POST['message'];
+	$mail->Body    = $email_name . "\n" . $email_email . "\n\n" . $email_msg;
 
 	# Send it!
 	$mail->send();

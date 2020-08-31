@@ -1,0 +1,72 @@
+@use 'media-queries' as *
+@use 'text-shadow-as-outline' as *
+@use '../colors'
+
+section.hero .greeting
+	position: absolute
+	z-index: 20
+	top: 50%
+	left: 50%
+	width: 100%
+	transform: translate(-50%, -50%)
+	//text-shadow: 0.08em 0.08em 0.16em colors.$bg-header, -0.08em 0.08em 0.16em colors.$bg-header, 0.08em -0.08em 0.16em colors.$bg-header, -0.08em -0.08em 0.16em colors.$bg-header
+	text-shadow: text-shadow-as-outline(0.05em, colors.$bg-header)
+	color: colors.$fg-header
+
+	// Brute-forcing this for now
+	// It overflows on desktop at aspect ratios just above 1:1
+	// Let's fix that!
+	//+desktop
+		transform: translate(-50%, -50%) scale(calc( min(1, calc(0 - .2 + var(--js-aspect-ratio) * 4 / 5)) ))
+
+	h1
+		font-weight: bold
+
+		+desktop
+			font-size: calc( 2.2 * min(3.5vh, calc(9 / 4 * 3.5vw)) )
+		+mobile
+			font-size: calc( 2.2 * min(3.5vh, calc(6 / 4 * 3.5vw)) )
+
+	p:first-of-type
+		text-transform: lowercase
+		font-weight: bold
+		// Have this scale to nothing as the page scrolls
+		// NOTE never mind
+		//transform: scale( calc( max( 0, calc( 1 + var(--js-scroll-y) * -20 ) ) ) )
+
+		+desktop
+			font-size: min(6vw, 4.5vh)
+			//margin-bottom: min(9vw, 6vh)
+		+mobile
+			font-size: min(6vw, 4.5vh)
+			//margin-bottom: min(9vw, 6vh)
+
+	p
+		//line-height: 130%
+
+		+desktop
+			margin: 0 min(18vw, 13.5vh) min(4.5vw, 3vh)
+			font-size: 2.5vh
+		+mobile
+			margin: 0 min(6vw, 4.5vh) min(4.5vw, 3vh)
+			font-size: min(4.5vw, 3vh)
+
+	.cta
+		display: inline-block
+		margin: 0
+		text-shadow: none
+
+		+desktop
+			min-width: 30vw
+		+mobile
+			width: 80vw
+
+	button.cta:hover
+		background: colors.$fg-header
+
+	a:not(.cta)
+		display: block
+		margin: min(4.5vw, 3vh) 0 0
+		font-size: min(3.75vw, 2.5vh)
+		text-align: center
+		color: colors.$fg-header

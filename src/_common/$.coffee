@@ -1,3 +1,6 @@
 import './script/junk.coffee'
+import './script/jquery.coffee'
+import './script/css-vars.coffee'
 import './script/form.coffee'
 import './script/sevenseg.coffee'
+import './script/sr.coffee'

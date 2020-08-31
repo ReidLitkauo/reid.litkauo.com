@@ -1,0 +1,56 @@
+@use 'media-queries' as *
+@use 'text-shadow-as-outline' as *
+@use 'colors'
+
+section.portfolio
+
+	.header
+
+		.transition.from-section-services
+			color: colors.$bg-services-6
+
+		.transition.from-projects-header
+			color: colors.$bg-header
+
+	.project
+		color: colors.$fg-header
+		background-position: 50% 50%
+		background-size: cover
+
+		.content
+			padding: 2vh 5vw 4vh
+
+		h3
+			padding: 2vmin 0 0
+			font-family: 'Montserrat', sans-serif
+			font-size: calc(1.2 * min(3vh, 6vw))
+			font-weight: bold
+			//line-height: 1.1em
+
+		p:first-of-type
+			font-size: calc(0.9 * min(3vh, 6vw))
+			//line-height: 1.1em
+		p
+			padding: 2vmin 0 0
+			font-size: calc(0.7 * min(3vh, 6vw))
+			//line-height: 1.1em
+
+	.project.align-left .content
+		text-align: left
+
+	.project.align-right .content
+		+mobile
+			text-align: right
+		+desktop
+			text-align: left
+			padding-top: 4vh
+
+	// Individual project styles
+
+	.project.kitchen-repose
+		background-image: url('/assets/code.jpg')
+		text-shadow: text-shadow-as-outline(0.05em, colors.$bg-header)
+
+	.transition
+		color: colors.$bg-header
+		background: none

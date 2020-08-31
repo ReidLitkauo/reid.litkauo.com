@@ -1,0 +1,102 @@
+@use 'media-queries' as *
+@use 'colors'
+
+body
+	font-family: 'Montserrat Alternates', sans-serif
+	//line-height: 1.4em
+	background: colors.$bg-header
+
+	+desktop
+		margin-top: 8vh
+	+mobile
+		margin-bottom: 8.5vh
+
+	p
+		line-height: 1.3em
+
+button, a.button
+	padding: 1.5vh 4vw
+	border: 0.5vmin solid colors.$fg-header
+	font-family: "Montserrat", sans-serif
+	font-size: calc( 3.2 * min(1vh, 1.5vw) )
+	font-variant: small-caps
+	text-decoration: none
+	background: colors.$bg-header
+	color: colors.$fg-header
+
+button.cta, a.button.cta
+	border-color: colors.$bg-header
+	background: hsl(240deg, 100%, 85%)
+	color: colors.$bg-header
+	transition: background-color 0.2s ease-in-out
+	animation: hue-rotate 120s linear 0s infinite
+
+a
+	color: hsl(183deg, 100%, 20%)
+
+.slanty-cut
+	overflow: hidden
+
+.slanty-cut::before
+	content: ''
+	position: absolute
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	background: currentcolor
+
+// https://stackoverflow.com/a/60043249
+
+.slanty-cut.to-bottom-left::before
+	clip-path: polygon(-5% -5%, 105% -5%, 105% 105%)
+	-webkit-clip-path: polygon(-5% -5%, 105% -5%, 105% 105%)
+
+.slanty-cut.to-bottom-right::before
+	clip-path: polygon(-5% -5%, 105% -5%, -5% 105%)
+	-webkit-clip-path: polygon(-5% -5%, 105% -5%, -5% 105%)
+
+.slanty-cut.to-top-right::before
+	clip-path: polygon(-5% -5%, 105% 105%, -5% 105%)
+	-webkit-clip-path: polygon(-5% -5%, 105% 105%, -5% 105%)
+
+.slanty-cut.to-top-left::before
+	clip-path: polygon(105% -5%, 105% 105%, -5% 105%)
+	-webkit-clip-path: polygon(105% -5%, 105% 105%, -5% 105%)
+
+//main > .background
+	position: fixed
+	z-index: -999
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	background: linear-gradient(60deg, hsl(0deg, 100%, 80%) 0%, hsl(120deg, 100%, 80%) 100%)
+	animation: hue-rotate 60s linear 0s infinite
+
+.transition
+	height: 3vh
+
+
+h2
+	padding: 3vh 5vw
+	text-align: center
+	font-size: calc(1.5 * min(3vh, 6vw))
+	font-weight: bold
+	color: colors.$bg-header
+
+.background
+	position: absolute
+	z-index: -1
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	background: linear-gradient(60deg, hsl(0deg, 100%, 80%) 0%, hsl(120deg, 100%, 80%) 100%)
+	animation: hue-rotate 120s linear 0s infinite
+
+a
+	color: #8ff
+
+.wbr-only
+	white-space: nowrap

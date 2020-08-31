@@ -1,78 +1,88 @@
-.service.frontend.align-left
-	img(src='/assets/flaticon/freepik/home-page.svg' alt='A pretty website')
-	h4 Front-End #[wbr]Development
-	p If you can dream it, I can build it.
-	p
-		| Leave a uniquely beautiful impression on your visitors with custom
-		| scripts &amp; styling hand-tailored to your specific vision.
+section.services
 
-.service.backend.align-right
-	img(src='/assets/flaticon/freepik/code.svg' alt='Back-end coding')
-	h4 Custom Back-End#[wbr] Functionality
-	p Make your website do whatever you want.
-	p
-		| Anything is possible with a programmer behind the scenes, from simple
-		| form submission to a fully custom webapp with any desired functionality.
+	.header
+		.background
+		.transition.from-section-hero.slanty-cut.to-bottom-left
+		h2.wbr-only Here&#x2019;s what I#[wbr] can do for you:
+		.transition.from-services-header.slanty-cut.to-top-right
 
-//- .service.database.align-left
-//- 	img(src='/assets/flaticon/freepik/server.svg' alt='Database')
-//- 	h4 Database #[wbr]Creation
-//- 	p !!something nice here!!
-//- 	p
-//- 		| Store, search, and utilize your collected data effectively with a
-//- 		| custom-designed database.
-//- 		-#| tailored to suit your webapp&#x2019;s requirements.
+	.service.frontend.align-left
+		img(src='/assets/flaticon/freepik/home-page.svg' alt='A pretty website' aria-hidden='true')
+		h3.wbr-only Front-End #[wbr]Development
+		p If you can dream it, I can build it.
+		p
+			| Leave a uniquely beautiful impression on your visitors with custom
+			| scripts &amp; styling hand-tailored to your specific vision.
 
-.service.sysadmin.align-left
-	img(src='/assets/flaticon/freepik/ui.svg' alt='Server and settings')
-	h4 Hosting &amp; #[wbr]Administration
-	p
-		| I&#x2019;ll stand between you and
-		| 
-		a(href="https://xkcd.com/705/" target="_blank" rel='noopener noreferrer') the forces of darkness
-		| .
-	p
-		| Don&#x2019;t fret over the technical details behind running your website.
-		| I&#x2019;ll configure your server, manage your DNS settings, and find the
-		| best hosting solution for you.
-	-# No I won't host myself, see: https://redd.it/ib4knz
-	-#p
-	-#	| I also offer shared &amp; dedicated hosting on my own servers!
+	.transition.from-service-frontend.slanty-cut.to-top-left
 
-.service.security.align-right
-	img(src='/assets/flaticon/freepik/permission.svg' alt='Internet shield with checkboxes')
-	h4 Comprehensive#[wbr] Security
-	p Designed from the ground up to resist attack.
-	p
-		| Mandatory HTTPS. SQL injection prevention. Secure password storage.
-		| Tiny attack surfaces. These features and more naturally arise from my
-		| small, custom-tailored solution to your web needs.
+	.service.backend.align-right
+		img(src='/assets/flaticon/freepik/code.svg' alt='Back-end coding' aria-hidden='true')
+		h3.wbr-only Custom Back-End#[wbr] Functionality
+		p Make your website do whatever you want.
+		p
+			| Anything is possible with a programmer behind the scenes, from simple
+			| form submission to a fully custom webapp with any desired functionality.
 
-.service.seo.align-left
-	img(src='/assets/flaticon/freepik/search.svg' alt='Magnifying glass and gear')
-	h4 Search Engine #[wbr]Optimization
-	p Let new users come to you.
-	p
-		| I&#x2019;ll set appropriate head tags, provide social media integration,
-		| direct webcrawlers, and navigate the
-		|
-		a(href='https://search.google.com/search-console/about' target="_blank" rel='noopener noreferrer') Google Search Console
-		|
-		| on your behalf.
+	.transition.from-service-backend.slanty-cut.to-top-right
+	
+	.service.sysadmin.align-left
+		img(src='/assets/flaticon/freepik/ui.svg' alt='Server and settings' aria-hidden='true')
+		h3.wbr-only Hosting &amp; #[wbr]Administration
+		p
+			| I&#x2019;ll stand between you and
+			| 
+			a(href="https://xkcd.com/705/" target="_blank" rel='noopener noreferrer') the forces of darkness
+			| .
+		p
+			| Don&#x2019;t fret over the technical details behind running your website.
+			| I&#x2019;ll configure your server, manage your DNS settings, and find the
+			| best hosting solution for you.
+	
+	.transition.from-service-sysadmin.slanty-cut.to-top-left
 
-.service.support.align-right
-	img(src='/assets/flaticon/freepik/heart.svg' alt='Two people shaking hands with heart as background')
-	h4 Ongoing#[wbr] Support
-	p Let&#x2019;s build a relationship.
-	p 
-		| By not charging extra for bug fixes or minor edits, being available
-		| round-the-clock to fix critical issues, and just generally being here to
-		| answer questions or say hi &amp; check on you, I can provide you with the
-		| support you need to be successful on the web.
+	.service.security.align-right
+		img(src='/assets/flaticon/freepik/permission.svg' alt='Internet shield with checkboxes' aria-hidden='true')
+		h3.wbr-only Comprehensive#[wbr] Security
+		p Designed from the ground up to resist attack.
+		p
+			| Mandatory HTTPS. SQL injection prevention. Secure password storage.
+			| Tiny attack surfaces. These features and more naturally arise from my
+			| small, custom-tailored solution to your web needs.
 
-.service.pricing.align-left
-	img(src='/assets/flaticon/freepik/low-price.svg' alt='Money with arrow pointing down')
-	h4 Custom #[wbr]Pricing
-	p Plans that make sense for your project.
-	p
-		| hell yeah
+	.transition.from-service-security.slanty-cut.to-top-right
+
+	.service.seo.align-left
+		img(src='/assets/flaticon/freepik/search.svg' alt='Magnifying glass and gear' aria-hidden='true')
+		h3.wbr-only Search Engine #[wbr]Optimization
+		p Let new users come to you.
+		p
+			| I&#x2019;ll set appropriate head tags, provide social media integration,
+			| direct webcrawlers, and navigate the
+			|
+			a(href='https://search.google.com/search-console/about' target="_blank" rel='noopener noreferrer') Google Search Console
+			|
+			| on your behalf.
+	
+	.transition.from-service-seo.slanty-cut.to-top-left
+
+	.service.support.align-right
+		img(src='/assets/flaticon/freepik/heart.svg' alt='Two people shaking hands with heart as background' aria-hidden='true')
+		h3.wbr-only Ongoing#[wbr] Support
+		p Let&#x2019;s build a relationship.
+		p 
+			| By not charging extra for bug fixes or minor edits, being available
+			| round-the-clock to fix critical issues, and just generally being here to
+			| answer questions or say hi &amp; check on you, I can provide you with the
+			| support you need to be successful on the web.
+			
+	.transition.from-service-support.slanty-cut.to-top-right
+
+	.service.pricing.align-left
+		img(src='/assets/flaticon/freepik/low-price.svg' alt='Money with arrow pointing down' aria-hidden='true')
+		h3.wbr-only Custom #[wbr]Pricing
+		p Unique plans for your unique project.
+		p
+			| We can negotiate a flat rate, a variable monthly payment, a
+			| commission from the online storefront I create for you, or anything
+			| else that makes sense for your project.

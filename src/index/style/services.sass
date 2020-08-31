@@ -1,0 +1,107 @@
+@use 'media-queries' as *
+@use 'colors'
+
+section.services
+
+	.header
+
+		> *
+			z-index: 0
+
+		.background
+			position: absolute
+			z-index: -1
+			top: 0
+			left: 0
+			bottom: 0
+			right: 0
+			background: linear-gradient(60deg, hsl(0deg, 100%, 80%) 0%, hsl(120deg, 100%, 80%) 100%)
+			animation: hue-rotate 60s linear 0s infinite
+
+		.transition.from-section-hero
+			color: colors.$bg-header
+		.transition.from-services-header
+			color: colors.$bg-services-0
+
+	// General services styling
+
+	.service
+		padding: 2vh 5vw 4vh
+		color: colors.$fg-header
+
+		img
+			display: inline-block
+			width: min(8vh, 16vw)
+			height: min(8vh, 16vw)
+
+		h3
+			padding: 2vmin 0 0
+			font-family: 'Montserrat', sans-serif
+			font-size: calc(1.2 * min(3vh, 6vw))
+			font-weight: bold
+			//line-height: 1.1em
+
+		p:first-of-type
+			font-size: calc(0.9 * min(3vh, 6vw))
+			//line-height: 1.1em
+		p
+			padding: 2vmin 0 0
+			font-size: calc(0.7 * min(3vh, 6vw))
+			//line-height: 1.1em
+
+	.service.align-left
+		text-align: left
+
+	.service.align-right
+		+mobile
+			text-align: right
+		+desktop
+			text-align: left
+			padding-top: 4vh
+
+	// Specific services styling
+
+	.service.frontend
+		background: colors.$bg-services-0
+
+	.transition.from-service-frontend
+		background: colors.$bg-services-0
+		color:      colors.$bg-services-1
+
+	.service.backend
+		background: colors.$bg-services-1
+
+	.transition.from-service-backend
+		background: colors.$bg-services-1
+		color:      colors.$bg-services-2
+
+	.service.sysadmin
+		background: colors.$bg-services-2
+
+	.transition.from-service-sysadmin
+		background: colors.$bg-services-2
+		color:      colors.$bg-services-3
+
+	.service.security
+		background: colors.$bg-services-3
+
+	.transition.from-service-security
+		background: colors.$bg-services-3
+		color:      colors.$bg-services-4
+
+	.service.seo
+		background: colors.$bg-services-4
+
+	.transition.from-service-seo
+		background: colors.$bg-services-4
+		color:      colors.$bg-services-5
+
+	.service.support
+		background: colors.$bg-services-5
+
+	.transition.from-service-support
+		background: colors.$bg-services-5
+		color:      colors.$bg-services-6
+
+	.service.pricing
+		background: colors.$bg-services-6

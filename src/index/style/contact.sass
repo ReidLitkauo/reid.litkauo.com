@@ -1,0 +1,201 @@
+@use 'media-queries' as *
+@use 'colors'
+
+section.contact
+	//padding: min(7.5vw, 3.5vh) 5vmin
+	text-align: center
+
+	.transition.from-section-projects
+		color: colors.$bg-header
+
+	form
+		font-size: 2vh
+		display: inline-block
+		margin-bottom: 3vh
+
+		+mobile
+			width: 90vw
+		+desktop
+			width: 60vw
+
+		> *
+			transition: opacity 0.3s
+
+		.success
+			position: absolute
+			z-index: 0
+			top: 0
+			left: 0
+			bottom: 0
+			right: 0
+			opacity: 0
+
+			span
+				position: absolute
+				top: 50%
+				left: 50%
+				transform: translate(-50%, -50%)
+
+				p
+					font-size: 2.5vh
+
+				p + p
+					margin-top: 2vh
+
+		.fields
+			z-index: 1
+
+			> *
+				display: block
+				margin-bottom: min(2vw, 1vh)
+
+			input, textarea
+				background: colors.$fg-header
+				font-family: Montserrat
+				font-size: 2vh
+
+			input::placeholder, textarea::placeholder
+				font-style: italic
+				font-size: 1.75vh
+				color: #888
+			input::-webkit-placeholder, textarea::-webkit-placeholder
+				font-style: italic
+				font-size: 1.75vh
+				color: #888
+			input::-ms-placeholder, textarea::-ms-placeholder
+				font-style: italic
+				font-size: 1.75vh
+				color: #888
+			input:-ms-placeholder, input:-ms-placeholder
+				font-style: italic
+				font-size: 1.75vh
+				color: #888
+
+			input
+				padding-left: min(2vw, 1vh)
+				display: inline-block
+				height: 4vh
+				text-align: left
+				width: calc( 100% - min(2vw, 1vh) )
+
+			textarea
+				resize: vertical
+				width: calc(100% - 2 * min(1vw, 0.5vh))
+				height: 12ex
+				padding: min(1vw, 0.5vh)
+
+			label.captcha
+				width: 100%
+				margin: 1.5vh 0
+
+				div
+					padding: 0 5vw
+					//line-height: 120%
+
+				input
+					display: block
+					width: calc( 100% - 2 * min(1vw, 0.5vh) )
+					height: 4vh
+					margin-top: min(1vw, 0.5vh)
+					text-align: left
+
+			button
+				position: relative
+				width: calc(100%)
+				height: 7vh
+				padding: 0
+				margin-bottom: 0
+
+				> *
+					position: absolute
+					top: 50%
+					left: 50%
+					opacity: 0
+					transform: translate(-50%, -50%)
+					transition: opacity 0.3s
+
+				.default
+					opacity: 1
+
+				.loading
+					padding: 0
+					width: 6vh
+					height: 6vh
+					filter: invert(1)
+
+				.error
+					width: 100%
+					font-variant: normal
+					font-size: 2vh
+					font-style: italic
+					//line-height: 100%
+
+			button:disabled
+				background: #00000080
+
+	.social
+		padding-bottom: 3vh
+
+		a span
+			color: black
+
+		+desktop
+
+			a
+				display: inline-block
+				text-align: center
+
+				img
+					display: inline-block
+					height: 7vh
+					margin-bottom: 1vh
+					//background: white
+					//border-radius: 10%
+
+				span
+					display: block
+					font-size: min(1.75vh, 3.5vw)
+
+			a + a
+				margin-left: 5vw
+
+			// Special considerations
+			a.twitter img
+				transform: scale(1.3)
+			a.github img
+				transform: scale(0.85)
+			a.linkedin img
+				transform: scale(0.8) translate(10%, 0%)
+			a.email img
+				transform: scale(0.8)
+
+		+mobile
+			display: inline-grid
+			grid-gap: 2vw 0.75vh
+			grid-template-columns: 40vw 40vw
+
+			a
+				text-align: middle
+
+				img
+					display: inline-block
+					height: 5vh
+					margin-right: 1vw
+
+				span
+					display: inline-block
+					font-size: min(1.75vh, 3.5vw)
+					transform: translate(0%, -100%)
+
+			a.email
+				grid-column: 1 / 3
+
+			// Special considerations
+			a.discord img
+				transform: scale(1.2) translate(-5%, 0%)
+			a.twitter img
+				transform: scale(1.5) translate(-3%, 0)
+			a.github img
+				transform: translate(-5%, 0%)
+			a.email img
+				transform: translate(-5%, 0%)

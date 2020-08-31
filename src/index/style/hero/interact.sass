@@ -1,0 +1,120 @@
+@use 'media-queries' as *
+@use 'text-shadow-as-outline' as *
+@use '../colors'
+
+.interact
+	position: absolute
+	z-index: 30
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+
+	.card
+		position: absolute
+		opacity: 0
+		background: #404040
+		color: colors.$fg-header
+		transition: opacity .3s ease-in-out
+		pointer-events: none
+		text-align: left
+
+		+desktop
+			padding: 2vmin
+			font-size: min(2vh, 1.8vw)
+			// Took this calculation from .nn.network
+			width: calc( 45% - min(calc(90vw * 2 / 3), calc(60vh * 2 / 3)) / 2 - 4vmin )
+			height: calc( 33% - 4vmin )
+
+		+mobile
+			padding: 3vmin
+			font-size: min(2vh, 3.5vw)
+
+		button
+			display: none
+			position: absolute
+			padding: 1vh
+			font-size: 100%
+			text-decoration: none
+			border-width: .2vmin
+			background: none
+
+			+desktop
+				bottom: 2vmin
+				left: 2vmin
+			+mobile
+				bottom: 3vmin
+				left: 3vmin
+
+
+	// Individual card styling
+
+	.card.card-1
+
+		+desktop
+			top: 3%
+			left: 3%
+
+		+mobile
+			top: 60%
+			left: 28%
+			bottom: 5%
+			right: 28%
+
+	.card.card-2
+
+		+desktop
+			bottom: 3%
+			left: 3%
+
+		+mobile
+			top: 65%
+			left: 30%
+			height: 28%
+			right: 20%
+
+	.card.card-3
+
+		+desktop
+			top: 3%
+			right: 3%
+
+		+mobile
+			top: 77%
+			left: 10%
+			bottom: 3%
+			right: 10%
+
+	.card.card-4
+
+		+desktop
+			bottom: 3%
+			right: 3%
+
+		+mobile
+			top: 65%
+			left: 20%
+			height: 28%
+			right: 30%
+
+		.button-container
+			position: absolute
+
+			+desktop
+				bottom: 2vmin
+				left: 2vmin
+			+mobile
+				bottom: 3vmin
+				left: 3vmin
+
+		button
+			position: relative
+			bottom: unset
+			left: unset
+
+		button + button
+
+			+desktop
+				margin-top: 2vmin
+			+mobile
+				margin-top: 3vmin

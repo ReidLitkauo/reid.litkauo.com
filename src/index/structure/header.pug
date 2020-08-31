@@ -1,6 +1,33 @@
 header
+
+	h1
+	 	a(href='#anchor-hero') Reid Litkauo
+
+	.nav-clickout
+
+	nav
+		a.hero(href='#anchor-hero')
+			img(src='/assets/flaticon/freepik/kawaii-cabin.svg' alt='Home' aria-hidden='true')
+			span Home
+		a.services(href='#anchor-services')
+			img(src='/assets/flaticon/freepik/kawaii-gift-box.svg' alt='Gift Box' aria-hidden='true')
+			span Services
+		a.portfolio(href='#anchor-portfolio')
+			img(src='/assets/flaticon/freepik/kawaii-task.svg' alt='Checklist' aria-hidden='true')
+			span Portfolio
+		a.contact(href='#anchor-contact')
+			img(src='/assets/flaticon/freepik/kawaii-mail.svg' alt='Email' aria-hidden='true')
+			span Contact
 	
-	include ./header-name.pug
-	include ./header-nn.pug
+	.content
+
+		button.nav-icon-wrap(aria-label="Open Navigation Drawer")
+			.nav-icon
+				.bar-top
+				.bar-mid
+				.bar-btm
+
+		a.resume(href='/assets/resume.pdf' target='_blank')
+			img(src='/assets/flaticon/freepik/kawaii-diploma.svg' alt='Resume' aria-hidden='true')
+			span R&#x00e9;sum&#x00e9;
 	
-.header-wave

@@ -1,0 +1,18 @@
+@use 'media-queries' as *
+@use 'colors'
+
+footer
+	padding: 2vmin
+	font-size: 2vmin
+	//line-height: 120%
+	background: colors.$bg-header
+	color: colors.$fg-header
+
+	+mobile
+		font-size: 3vmin
+
+	p + p
+		padding-top: 2vmin
+
+	a
+		color: #8ff

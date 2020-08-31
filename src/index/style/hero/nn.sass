@@ -1,0 +1,110 @@
+@use 'media-queries' as *
+
+section.hero .nn
+	transition: filter 0.3s ease-in-out
+
+	.network
+		display: inline-block
+		width: min(calc(90vw * 2 / 3), calc(60vh * 2 / 3))
+		height: min(90vw, 60vh)
+		filter: brightness(0.4) blur(0.4vmin)
+
+		> *
+			position: absolute
+			top: 0
+			height: 100%
+
+		canvas
+			display: block
+			position: absolute
+			top: 0
+			left: 0
+			bottom: 0
+			right: 0
+			height: 100%
+			width: 100%
+			//filter: blur(0.5px)
+			transition: opacity 0.3s
+
+		.neurons
+			z-index: 1
+			width: calc(100% * 3 / 53 * 3 / 2)
+
+		.neurons.layer-0
+			left: 0
+			// transform: translate(0, 0)
+		.neurons.layer-1
+			left: 50%
+			transform: translate(-50%, 0)
+		.neurons.layer-2
+			left: 100%
+			transform: translate(-100%, 0)
+
+		.connections
+			z-index: 0
+			// This got complicated quickly
+			// The * 3 / 53 reflects the aspect ratio of the neuron column
+			// The * 3 / 2 is the aspect ratio of the network as a whole
+			// And divide by 2 to have the end line up with the middle
+			width: calc( 50% - calc(100% * 3 / 53 * 3 / 2 / 2) )
+
+		.connections.layer-0
+			right: 50%
+		.connections.layer-1
+			left: 50%
+
+	.io
+		margin: 5vh 0 0
+		height: min(24vmax, 16vmin)
+
+		+desktop
+			position: absolute
+			top: 0
+			width: 100%
+			height: 100%
+			margin: 0
+
+			> div.input, > div.output
+				top: calc(50% - min(12vmax, 8vmin))
+
+		.input
+			position: absolute
+			top: 0
+			left: 10vw
+			height: min(24vmax, 16vmin)
+			width: min(24vmax, 16vmin)
+			background: black
+			filter: brightness(0.4) blur(0.4vmin)
+
+			canvas
+				display: block
+				position: absolute
+				top: 0
+				left: 0
+				bottom: 0
+				right: 0
+				height: 100%
+				width: 100%
+				transition: opacity 0.3s
+				opacity: 0
+
+		.output
+			display: table-cell
+			position: absolute
+			top: 0
+			right: 10vw
+			height: min(24vmax, 16vmin)
+			width: min(24vmax, 16vmin)
+			text-align: center
+			line-height: 20vw
+			filter: brightness(0.4) blur(0.4vmin)
+
+			.sevenseg
+				width: 50%
+				height: 100%
+				margin: 0 25%
+
+				div
+					background: black
+					color: white
+					transition: background-color 0.2s ease-in-out

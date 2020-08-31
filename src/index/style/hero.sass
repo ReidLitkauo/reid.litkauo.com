@@ -1,0 +1,110 @@
+@use 'media-queries' as *
+@use 'colors'
+@use 'hero/nn'
+@use 'hero/greeting'
+@use 'hero/interact'
+
+section.hero
+	background: colors.$bg-header
+	text-align: center
+	padding: 5vh 0
+
+	> *:not(.nn)
+		opacity: 0
+		transition: opacity 0.3s ease-in-out
+		pointer-events: none
+
+
+
+
+section.hero.mode-greeting .greeting
+	opacity: 1
+	pointer-events: all
+
+
+
+// Control which cards display at what time
+
+section.hero.mode-interact-card-1
+
+	.nn .network, .nn .io .input, .nn .io .output
+		filter: none
+
+	.interact
+		opacity: 1
+		pointer-events: all
+
+		+desktop
+			.card.card-1
+				opacity: 1
+				pointer-events: all
+		+mobile
+			.card.card-1
+				opacity: 1
+				pointer-events: all
+
+		.card.card-1 button
+			display: block
+
+section.hero.mode-interact-card-2
+
+	.nn .io .input
+		filter: none
+
+	.interact
+		opacity: 1
+		pointer-events: all
+
+		+desktop
+			.card.card-1, .card.card-2
+				opacity: 1
+				pointer-events: all
+		+mobile
+			.card.card-2
+				opacity: 1
+				pointer-events: all
+
+		.card.card-2 button
+			display: block
+
+section.hero.mode-interact-card-3
+
+	.nn .network
+		filter: none
+
+	.interact
+		opacity: 1
+		pointer-events: all
+
+		+desktop
+			.card.card-1, .card.card-2, .card.card-3
+				opacity: 1
+				pointer-events: all
+		+mobile
+			.card.card-3
+				opacity: 1
+				pointer-events: all
+
+		.card.card-3 button
+			display: block
+
+section.hero.mode-interact-card-4
+
+	.nn .io .output
+		filter: none
+
+	.interact
+		opacity: 1
+		pointer-events: all
+
+		+desktop
+			.card.card-1, .card.card-2, .card.card-3, .card.card-4
+				opacity: 1
+				pointer-events: all
+		+mobile
+			.card.card-4
+				opacity: 1
+				pointer-events: all
+
+		.card.card-4 button
+			display: block
